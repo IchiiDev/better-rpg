@@ -2,3 +2,8 @@ name: Better-RPG
 version: 0.0.1
 author: IchiiDev
 main: xyz.ichiidev.betterrpg.main
+commands:
+  better-rpg:
+    description: The main command for Better RPG
+    permission: brpg.main
+    aliases: [brpg]

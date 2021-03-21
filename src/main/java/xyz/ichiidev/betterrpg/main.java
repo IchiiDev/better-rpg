@@ -2,6 +2,8 @@ package xyz.ichiidev.betterrpg;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.ichiidev.betterrpg.commands.BetterRPGCommand;
+import xyz.ichiidev.betterrpg.events.ClickItem;
+import xyz.ichiidev.betterrpg.utils.RecipeUtils;
 
 public class main extends JavaPlugin {
 
@@ -12,6 +14,11 @@ public class main extends JavaPlugin {
         saveDefaultConfig();
 
         registerCommands();
+        registerEvents();
+
+        RecipeUtils recipes = new RecipeUtils();
+        recipes.loadRecipes(this);
+        recipes.registerRecipes();
     }
 
     @Override
@@ -21,6 +28,10 @@ public class main extends JavaPlugin {
 
     private void registerCommands() {
         getCommand("better-rpg").setExecutor(new BetterRPGCommand(this));
+    }
+
+    private void registerEvents() {
+        getServer().getPluginManager().registerEvents(new ClickItem(), this);
     }
 
 }

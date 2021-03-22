@@ -7,3 +7,5 @@ commands:
     description: The main command for Better RPG
     permission: brpg.main
     aliases: [brpg]
+  test:
+    description: none

@@ -5,14 +5,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import xyz.ichiidev.betterrpg.utils.PlayerUtils;
+import xyz.ichiidev.betterrpg.utils.enums.Achievements;
 
 public class TestCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 
-        Title title = new Title("1", "2", 20, 60, 20);
-        title.send((Player) sender);
+        PlayerUtils utils = new PlayerUtils((Player) sender);
+        utils.addAchievement(Achievements.FIRST_STEPS);
 
         return true;
     }

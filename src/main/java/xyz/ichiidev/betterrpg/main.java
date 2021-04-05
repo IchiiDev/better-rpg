@@ -1,5 +1,6 @@
 package xyz.ichiidev.betterrpg;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.ichiidev.betterrpg.commands.BetterRPGCommand;
 import xyz.ichiidev.betterrpg.commands.TestCommand;
@@ -8,12 +9,15 @@ import xyz.ichiidev.betterrpg.utils.InvUtils;
 import xyz.ichiidev.betterrpg.utils.RecipeUtils;
 
 public class main extends JavaPlugin {
+    public static JavaPlugin plugin;
 
     @Override
     public void onEnable() {
         System.out.println("Better RPG has started, time to farm ! :p");
 
         saveDefaultConfig();
+
+        plugin = this;
 
         registerCommands();
         registerEvents();
